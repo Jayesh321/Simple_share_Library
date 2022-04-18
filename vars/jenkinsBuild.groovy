@@ -15,7 +15,11 @@ environment {
 				 checkout([$class: 'GitSCM', branches: [[name: "$gitBranch"]], extensions: [], userRemoteConfigs: [[credentialsId: "$gitCredId", url: "$gitRepo"]]])
 			}
 		}	
-					
+		stage('BUILD IMAGE') { 
+			 steps { 
+				 sh "mvn clean install"
+			} 
+		}			
 	}
 			  
 }
