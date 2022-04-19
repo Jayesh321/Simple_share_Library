@@ -23,7 +23,7 @@ environment {
 		stage {
 			steps {
 				sshagent(['tomcat']) {
-					scp /var/lib/jenkins/workspace/shared/target/works-with-heroku-1.0.war ec2-user@3.110.128.73:/opt/apache-tomcat-9.0.62/webapps
+					sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/shared/target/works-with-heroku-1.0.war ec2-user@3.110.128.73:/opt/apache-tomcat-9.0.62/webapps"
 				}
 			}
 		}			
